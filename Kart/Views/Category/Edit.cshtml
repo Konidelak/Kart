@@ -1,0 +1,30 @@
+﻿@using Kart.Models.VM
+@model CategoryVm
+<h1>Adding New Category</h1>
+
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    <div>
+        @Html.Label("Category Name  ")
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+
+    </div>
+    <div>
+        @Html.Label("Category Description  ")
+        @Html.TextBoxFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+    <br />
+    <div>
+        @Html.ActionLink("Back to list", "Index")
+    </div>
+
+}
